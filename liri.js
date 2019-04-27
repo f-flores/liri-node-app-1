@@ -63,8 +63,31 @@ axios.get(queryUrl).then(
 }
 //spotify-this-song
 function spotifySong(songTitle){
-  console.log(songTitle);
+  if (!songTitle)
+{
+  songTitle = "Mr. Nobody"
+};
+// Then run a request with axios to the OMDB API with the movie specified
+var queryUrl = "http://www.omdbapi.com/?t=" + songTitle + "&y=&plot=short&apikey=trilogy";
+
+// This line is just to help us debug against the actual URL.
+// console.log(queryUrl);
+
+axios.get(queryUrl).then(
+  function(response) {
+    var song = response.data;
+    console.log("Title of Song: " + song.Title);
+    console.log("Year of Song: " + song.Year);
+    console.log("Song Rating: " + song.Ratings[0].Value);
+    console.log("Rotten Tomatoes Rating: " +song.Ratings[1].Value);
+    console.log("Country of Song: " + song.Country);
+    console.log("Language of Song: " + song.Language);
+    console.log("Plot of Song: " + song.Plot);
+    console.log("Actors of Song: " + song.Actors);
+  }
+);
 }
+
 //movie-this
 
 //do-what-it-says

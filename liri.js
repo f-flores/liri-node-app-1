@@ -18,21 +18,52 @@ if (!movieName)
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
 // This line is just to help us debug against the actual URL.
-console.log(queryUrl);
+// console.log(queryUrl);
 
 axios.get(queryUrl).then(
   function(response) {
-    console.log("Release Year: " + response.data.Year);
-    console.log("Release Year: " + response.data.Year);
-    console.log("Release Year: " + response.data.Year);
+    var movie = response.data;
+    console.log("Title of movie: " + movie.Title);
+    console.log("Year of movie: " + movie.Year);
+    console.log("IMDB Rating: " + movie.Ratings[0].Value);
+    console.log("Rotten Tomatoes Rating: " +movie.Ratings[1].Value);
+    console.log("Country of movie: " + movie.Country);
+    console.log("Language of movie: " + movie.Language);
+    console.log("Plot of movie: " + movie.Plot);
+    console.log("Actors of movie: " + movie.Actors);
   }
 );
 }
 //concert-this
+function concertThis(bandName){
+  if (!bandName)
+{
+  bandName = "Aerosmith"
+};
+// Then run a request with axios to the bandName API with the band specified
+var queryUrl = "http://www.omdbapi.com/?t=" + bandName + "&y=&plot=short&apikey=trilogy";
 
+// This line is just to help us debug against the actual URL.
+// console.log(queryUrl);
+
+axios.get(queryUrl).then(
+  function(response) {
+    var band = response.data;
+    console.log("Title of Band: " +band.Title);
+    console.log("Year of Band: " +band.Year);
+    console.log("Band Rating: " +band.Ratings[0].Value);
+    console.log("Rotten Tomatoes Rating: " +movie.Ratings[1].Value);
+    console.log("Country of Band: " +band.Country);
+    console.log("Language of Band: " +band.Language);
+    console.log("Plot of Band: " +band.Plot);
+    console.log("Actors of Band: " +band.Actors);
+  }
+);
+  console.log(bandName);
+}
 //spotify-this-song
-function spotifySong(){
-  return true;
+function spotifySong(songTitle){
+  console.log(songTitle);
 }
 //movie-this
 
@@ -44,10 +75,10 @@ var command = process.argv[2]
 var value = process.argv[3]
 switch(command){
   case "concert-this":
-  concert();
+  concertThis(value);
   break;
-  case "spotify-this-song":
-  spotifySong();
+  case "spotify-this":
+  spotifySong(value);
   break;
   case "movie-this":
   movieThis(value);

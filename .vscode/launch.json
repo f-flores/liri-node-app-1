@@ -7,9 +7,23 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "ConcertThis",
       "program": "${workspaceFolder}\\liri.js",
-      "args": ["movie-this"]
+      "args": ["concert-this","aerosmith"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "MovieThis",
+      "program": "${workspaceFolder}\\liri.js",
+      "args": ["movie-this","Blow"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "SpotifyThis",
+      "program": "${workspaceFolder}\\liri.js",
+      "args": ["spotify-this","YMCA"]
     }
   ]
 }

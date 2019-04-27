@@ -83,7 +83,7 @@ function doLiri() {
         band = value.join("+");
         console.log(band);
       } else {
-        band = "Ariana+Grande"; // default band
+        band = "Aerosmith"; // default band
       }
       concertThis(band);
       break;
